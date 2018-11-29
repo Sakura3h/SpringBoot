@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
 
 <head>
-    <meta http-equiv="Content-Type" contents="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type"  />
     <title>hello word</title>
 </head>
 <body>
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+<h1>Spring boot</h1>
+<table>
+    <tr>
+        <td>账号</td>
+        <td>邮箱</td>
+        <td>时间</td>
+    </tr>
+    <tr th:each="demo:${list}">
+        <td th:text="${demo.userAccount}"></td>
+        <td th:text="${demo.email}"></td>
+        <td th:text="${demo.createDate}"></td>
+    </tr>
+</table>
 </body>
 </html>
