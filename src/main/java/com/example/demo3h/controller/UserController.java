@@ -3,7 +3,6 @@ package com.example.demo3h.controller;
 import com.example.demo3h.model.JsonResult;
 import com.example.demo3h.model.TbUserInfo;
 import com.example.demo3h.service.Impl.TbUserInfoServiceImpl;
-import com.example.demo3h.service.TbUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class UserController {
