@@ -3,14 +3,12 @@ package com.example.demo3h.controller;
 import com.example.demo3h.model.JsonResult;
 import com.example.demo3h.model.TbUserInfo;
 import com.example.demo3h.service.Impl.TbUserInfoServiceImpl;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -41,12 +39,25 @@ public class UserController {
     }
     @RequestMapping("/del")
     public  String delete(int id){
-        int count=tbUserInfoServiceImpl.del(id);
-     if(count>0){
-         return  "redirect:/demo";
-     }else {
-         return "/404";
-     }
+         int count=tbUserInfoServiceImpl.del(id);
+         if(count>0){
+             return  "redirect:/demo";
+         }else {
+             return "/404";
+         }
+    }
+    @RequestMapping("/insert")
+    public  String Insert(){
 
+        return "user";
+    }
+    @RequestMapping("/add")
+    public  String  add(TbUserInfo userInfo){
+        int count=tbUserInfoServiceImpl.add(userInfo);
+        if (count>0){
+            tbUserInfoServiceImpl.find();
+            return  "redirect:/demo";
+        }
+        return  "insert";
     }
 }

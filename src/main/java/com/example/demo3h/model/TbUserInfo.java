@@ -1,8 +1,10 @@
 package com.example.demo3h.model;
 
+
+import java.io.Serializable;
 import java.util.Date;
 //@Entity
-public class TbUserInfo {
+public class TbUserInfo implements Serializable {
 //    @Id
 //    @GeneratedValue
     private int userid;
@@ -17,6 +19,18 @@ public class TbUserInfo {
     public  TbUserInfo(){
 
     }
+
+    public TbUserInfo(int userid, String userAccount, String password, String email, int deptId, int delFlag, Date createDate, String image) {
+        this.userid = userid;
+        this.userAccount = userAccount;
+        this.password = password;
+        this.email = email;
+        this.deptId = deptId;
+        this.delFlag = delFlag;
+        this.createDate = createDate;
+        this.image = image;
+    }
+
     public int getUserid() {
         return userid;
     }
