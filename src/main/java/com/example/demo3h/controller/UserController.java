@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class UserController {
      }
         return ResponseEntity.ok(r);
     }
-@RequestMapping("/demo")
+    @RequestMapping("/demo")
     public  String demo(Model model){
         List<TbUserInfo> list =tbUserInfoServiceImpl.findAll();
         model.addAttribute("list",list);
@@ -42,7 +43,7 @@ public class UserController {
     public  String delete(int id){
         int count=tbUserInfoServiceImpl.del(id);
      if(count>0){
-         return  "/index";
+         return  "redirect:/demo";
      }else {
          return "/404";
      }
