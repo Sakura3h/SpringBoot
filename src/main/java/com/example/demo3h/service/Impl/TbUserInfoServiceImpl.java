@@ -17,4 +17,9 @@ public class TbUserInfoServiceImpl implements TbUserInfoService{
     public List<TbUserInfo> findAll() {
         return tbUserInfoMapper.findAll();
     }
+
+    @Override
+    public int del(int id) {
+        return tbUserInfoMapper.del(id);
+    }
 }

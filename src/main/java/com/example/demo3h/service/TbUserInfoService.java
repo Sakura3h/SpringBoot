@@ -9,4 +9,6 @@ public interface TbUserInfoService {
 
     List<TbUserInfo> findAll();
 
+    int del(int id);
+
     }

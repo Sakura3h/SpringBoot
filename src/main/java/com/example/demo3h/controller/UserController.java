@@ -3,6 +3,7 @@ package com.example.demo3h.controller;
 import com.example.demo3h.model.JsonResult;
 import com.example.demo3h.model.TbUserInfo;
 import com.example.demo3h.service.Impl.TbUserInfoServiceImpl;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -36,5 +37,15 @@ public class UserController {
         List<TbUserInfo> list =tbUserInfoServiceImpl.findAll();
         model.addAttribute("list",list);
         return  "/index";
+    }
+    @RequestMapping("/del")
+    public  String delete(int id){
+        int count=tbUserInfoServiceImpl.del(id);
+     if(count>0){
+         return  "/index";
+     }else {
+         return "/404";
+     }
+
     }
 }
