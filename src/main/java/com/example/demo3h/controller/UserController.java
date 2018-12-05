@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RestController;
 
+import javax.sql.rowset.spi.SyncProvider;
 import java.util.List;
 
 @Controller
@@ -60,4 +60,21 @@ public class UserController {
         }
         return  "insert";
     }
+    @RequestMapping("/update")
+    public  String update(int id,TbUserInfo userInfo){
+        int count=tbUserInfoServiceImpl.upadate(id,userInfo);
+        if (count>0){
+            tbUserInfoServiceImpl.find();
+            return  "redirect:/demo";
+        }
+        return  "admin";
+    }
+
+    @RequestMapping("/findById")
+    public  String findById(int id,Model model){
+        TbUserInfo userInfo= tbUserInfoServiceImpl.findById(id);
+        model.addAttribute("userInfoList",userInfo);
+       return  "admin";
+    }
+
 }

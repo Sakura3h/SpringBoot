@@ -1,10 +1,7 @@
 package com.example.demo3h.mapper;
 
 import com.example.demo3h.model.TbUserInfo;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 
 import java.util.List;
@@ -19,4 +16,10 @@ public interface TbUserInfoMapper {
 
     @Insert("INSERT INTO tb_userinfo VALUES(NULL,#{userAccount},#{password},#{email},0,NOW(),0,#{image})")
     int add(TbUserInfo userInfo);
+
+    @Update("UPDATE tb_userinfo SET userAccount=#{userAccount},password=#{password},email=#{email},image=#{image} WHERE userid=#{id}")
+    int update(Integer id,TbUserInfo userInfo);
+
+    @Select("SELECT * FROM tb_userinfo WHERE userid=#{id}")
+    TbUserInfo findById(int id);
 }

@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,5 +35,14 @@ public class TbUserInfoServiceImpl implements TbUserInfoService {
     @CachePut(key = "'tb_userinfo'", value = "'user'")
     public List<TbUserInfo> find(){
         return tbUserInfoMapper.findAll();
+    }
+
+    @CachePut(key = "'tb_userinfo'",value = "'user'")
+    public int upadate(int id,TbUserInfo userInfo) {
+        return  tbUserInfoMapper.update(id,userInfo);
+    }
+
+    public TbUserInfo findById(int id) {
+        return  tbUserInfoMapper.findById(id);
     }
 }
