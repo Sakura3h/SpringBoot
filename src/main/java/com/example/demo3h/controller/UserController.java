@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.sql.rowset.spi.SyncProvider;
 import java.util.List;
 
 @Controller
@@ -61,8 +60,8 @@ public class UserController {
         return  "insert";
     }
     @RequestMapping("/update")
-    public  String update(int id,TbUserInfo userInfo){
-        int count=tbUserInfoServiceImpl.upadate(id,userInfo);
+    public  String update(TbUserInfo userInfo){
+        int count=tbUserInfoServiceImpl.upadate(userInfo);
         if (count>0){
             tbUserInfoServiceImpl.find();
             return  "redirect:/demo";

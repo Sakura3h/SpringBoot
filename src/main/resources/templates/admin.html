@@ -10,7 +10,7 @@
 <p>userInfo update</p>
 <form action="update" method="post">
     <table th:each="list:${userInfoList}">
-        <input type="text" th:value="${list.userid}" disabled="none">
+        <input type="hidden" name="userid" th:value="${list.userid}">
         <tr>账号<input type="text" name="userAccount" th:value="${list.userAccount}"></tr>
         <tr>密码<input type="text" name="password" th:value="${list.password}"></tr>
         <tr>邮箱<input type="text" name="email"  th:value="${list.email}"></tr>

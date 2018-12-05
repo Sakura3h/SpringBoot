@@ -16,7 +16,7 @@ public interface TbUserInfoService {
 
     int add(TbUserInfo userInfo);
 
-    int  upadate(int id,TbUserInfo userInfo);
+    int  upadate(TbUserInfo userInfo);
 
    TbUserInfo findById(int id);
 

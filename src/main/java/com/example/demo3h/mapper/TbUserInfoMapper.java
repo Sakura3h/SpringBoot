@@ -17,8 +17,8 @@ public interface TbUserInfoMapper {
     @Insert("INSERT INTO tb_userinfo VALUES(NULL,#{userAccount},#{password},#{email},0,NOW(),0,#{image})")
     int add(TbUserInfo userInfo);
 
-    @Update("UPDATE tb_userinfo SET userAccount=#{userAccount},password=#{password},email=#{email},image=#{image} WHERE userid=#{id}")
-    int update(Integer id,TbUserInfo userInfo);
+    @Update("UPDATE tb_userinfo SET userAccount=#{userAccount},password=#{password},email=#{email},image=#{image} WHERE userid=#{userid}")
+    int update(TbUserInfo userInfo);
 
     @Select("SELECT * FROM tb_userinfo WHERE userid=#{id}")
     TbUserInfo findById(int id);
