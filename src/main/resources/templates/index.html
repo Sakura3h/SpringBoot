@@ -18,6 +18,7 @@
         <td>邮箱</td>
         <td>时间</td>
         <td>操作</td>
+        <td><a th:href="@{star}">搜索</a></td>
     </tr>
     <tr th:each="demo:${list}">
         <td th:text="${demo.userAccount}"></td>

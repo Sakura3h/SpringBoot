@@ -50,6 +50,11 @@ public class UserController {
 
         return "user";
     }
+    @RequestMapping("/star")
+    public  String Star(){
+
+        return "star";
+    }
     @RequestMapping("/add")
     public  String  add(TbUserInfo userInfo){
         int count=tbUserInfoServiceImpl.add(userInfo);
